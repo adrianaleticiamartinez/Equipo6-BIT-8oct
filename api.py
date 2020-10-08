@@ -21,7 +21,8 @@ def login():
         }
 
         user = dba.get_user(us)
-        session['perfil'] = user['perfil']
+        if user:
+            session['perfil'] = user['perfil']
         print('us', user)
         if us:
             return redirect(url_for('consult'))

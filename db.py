@@ -49,7 +49,7 @@ class Dbase(object):
         with open('baseUsuarios.csv', 'r', encoding = 'utf-8') as f:
             for lin in csv.DictReader(f):
                 #print('user', lin)
-                if lin['\ufeffusuario'] == user['usuario'] and lin['auth'] == lin['auth']:
+                if lin['\ufeffusuario'] == user['usuario'] and lin['auth'] == user['auth']:
                     return lin
                 return {}
 
