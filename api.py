@@ -38,13 +38,14 @@ def login():
 @app.route('/consult/', methods=['GET', 'POST'])
 def consult():
     if request.method == 'POST':
+        print('estoy en post')
         perfil = session['perfil']
         cliente = request.form.get('cliente')
 
         if not cliente:
             return render_template('consult.html')
 
-        cl = dba.get_client(cliente)
+        cl = dba.get_client(cliente, perfil)
         print('cl', cl)
 
         return json.dumps(cl)
